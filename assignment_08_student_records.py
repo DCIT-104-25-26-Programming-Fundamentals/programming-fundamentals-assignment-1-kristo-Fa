@@ -143,9 +143,9 @@ def calculate_student_average(student_list):
 if __name__ == "__main__":
     records = []
     while True:
-        print("\n================================")
+        
         print("   STUDENT RECORD SYSTEM MENU")
-        print("================================")
+        
         print("1. Add student")
         print("2. Display all students")
         print("3. Calculate average score")
