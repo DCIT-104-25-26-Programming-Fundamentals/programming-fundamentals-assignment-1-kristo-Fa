@@ -54,4 +54,29 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def generate_single_table(number):
+    print(f"\nMultiplication Table for {number}:")
+    for i in range(1, 13):
+        print(f"{number}  x  {i:<2} =  {number * i}")
 
+def generate_multiple_tables(limit):
+    for i in range(1, limit + 1):
+        generate_single_table(i)
+        if i < limit:
+            print("-" * 27)
+
+if __name__ == "__main__":
+    try:
+        user_num = int(input("Enter a number: "))
+        
+        if user_num <= 0:
+            print("Error: N must be a positive integer.")
+        else:
+            generate_single_table(user_num)
+            
+            print("\n" + "="*30)
+            print("PART B: Generating all tables up to N")
+            generate_multiple_tables(user_num)
+            
+    except ValueError:
+        print("Error: Please enter a valid whole number.")
