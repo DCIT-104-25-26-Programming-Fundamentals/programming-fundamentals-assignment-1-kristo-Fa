@@ -34,18 +34,18 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 def check_prime(number):
-    if number < 2
+    if number < 2:
         return False 
 
     for i in range (2,number):
-        if number % i == 0
+        if number % i == 0:
             return False 
 
     return True
 
-if __name__ =="__main__"
+if __name__ =="__main__":
     user_input = int(input("7:"))
- if check_prime(user_input):
-     print(f"{user_input} is a prime number.")
- else:
-     print(f"{user_input} is NOT a prime number.")
+    if check_prime(user_input):
+        print(f"{user_input} is a prime number.")
+    else:
+        print(f"{user_input} is NOT a prime number.")
