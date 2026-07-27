@@ -72,10 +72,61 @@
 # - Use a loop to keep the menu running until the user chooses to quit.
 # - Each feature MUST be implemented in its own function (see scaffold below).
 # - Handle invalid menu choices gracefully (print an error, do not crash).
-#
+
 
 #
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def add_task(todo_list):
+    task = input("Enter task: ")
+    todo_list.append(task)
+    print(f"Task added: \"{task}\"")
 
+def view_tasks(todo_list):
+    if not todo_list:
+        print("Your to-do list is currently empty.")
+    else:
+        print("Your Tasks:")
+        for i, task in enumerate(todo_list, 1):
+            print(f"{i}. {task}")
+
+def delete_task(todo_list):
+    if not todo_list:
+        print("Your to-do list is empty. Nothing to delete.")
+        return
+    
+    try:
+        task_num = int(input("Enter task number to delete: "))
+        if 1 <= task_num <= len(todo_list):
+            removed = todo_list.pop(task_num - 1)
+            print(f"Task \"{removed}\" has been removed.")
+        else:
+            print("Error: Invalid task number.")
+    except ValueError:
+        print("Error: Please enter a valid number.")
+
+if __name__ == "__main__":
+    my_tasks = []
+    while True:
+        print("\n============================")
+        print("     TO-DO LIST MENU")
+        print("============================")
+        print("1. Add task")
+        print("2. View tasks")
+        print("3. Delete task")
+        print("4. Quit")
+        
+        choice = input("Enter your choice (1-4): ")
+        
+        if choice == "1":
+            add_task(my_tasks)
+        elif choice == "2":
+            view_tasks(my_tasks)
+        elif choice == "3":
+            delete_task(my_tasks)
+        elif choice == "4":
+            print("Goodbye!")
+            break
+        else:
+            print("Error: Invalid choice. Please enter a number between 1 and 4.")
