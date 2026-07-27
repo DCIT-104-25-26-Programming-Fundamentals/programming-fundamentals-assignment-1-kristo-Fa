@@ -67,4 +67,73 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def add(a, b):
+    return a + b
 
+def subtract(a, b):
+    return a - b
+
+def multiply(a, b):
+    return a * b
+
+def divide(a, b):
+    if b == 0:
+        return None
+    return round(a / b, 2)
+
+def modulus(a, b):
+    if b == 0:
+        return None
+    return a % b
+
+def power(a, b):
+    return a ** b
+
+if __name__ == "__main__":
+    while True:
+        
+        print("     SIMPLE CALCULATOR")
+        
+        print("1. Addition")
+        print("2. Subtraction")
+        print("3. Multiplication")
+        print("4. Division")
+        print("5. Modulus")
+        print("6. Exponentiation")
+        print("7. Quit")
+        
+        choice = input("Select an operation (1-7): ")
+        
+        if choice == "7":
+            print("Goodbye!")
+            break
+            
+        if choice in ["1", "2", "3", "4", "5", "6"]:
+            try:
+                num1 = float(input("Enter first number : "))
+                num2 = float(input("Enter second number: "))
+                
+                if choice == "1":
+                    print(f"Result: {num1} + {num2} = {add(num1, num2)}")
+                elif choice == "2":
+                    print(f"Result: {num1} - {num2} = {subtract(num1, num2)}")
+                elif choice == "3":
+                    print(f"Result: {num1} * {num2} = {multiply(num1, num2)}")
+                elif choice == "4":
+                    res = divide(num1, num2)
+                    if res is None:
+                        print("Error: Cannot divide by zero.")
+                    else:
+                        print(f"Result: {num1} / {num2} = {res:.2f}")
+                elif choice == "5":
+                    res = modulus(num1, num2)
+                    if res is None:
+                        print("Error: Cannot divide by zero.")
+                    else:
+                        print(f"Result: {num1} % {num2} = {res}")
+                elif choice == "6":
+                    print(f"Result: {num1} ** {num2} = {power(num1, num2)}")
+            except ValueError:
+                print("Error: Please enter valid numbers.")
+        else:
+            print("Error: Invalid choice. Please select 1-7.")
