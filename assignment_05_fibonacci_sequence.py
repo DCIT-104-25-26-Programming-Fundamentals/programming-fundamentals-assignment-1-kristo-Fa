@@ -48,4 +48,44 @@
 # =============================================================================
 # YOUR CODE BELOW — remove the # symbols from the scaffold and fill it in
 # =============================================================================
+def print_fib_sequence(n):
+    if n <= 0:
+        return
+    
+    a, b = 0, 1
+    sequence = []
+    for _ in range(n):
+        sequence.append(str(a))
+        a, b = b, a + b
+    
+    print("Fibonacci sequence:", " ".join(sequence))
 
+def is_fibonacci(num):
+    if num < 0:
+        return False
+    
+    a, b = 0, 1
+    while a < num:
+        a, b = b, a + b
+    
+    return a == num
+
+if __name__ == "__main__":
+    try:
+        n_terms = int(input("How many terms? "))
+        
+        if n_terms <= 0:
+            print("Error: N must be a positive integer.")
+        else:
+            print_fib_sequence(n_terms)
+            
+            print()
+            check_num = int(input("Enter a number to check: "))
+            
+            if is_fibonacci(check_num):
+                print(f"{check_num} is a Fibonacci number.")
+            else:
+                print(f"{check_num} is NOT a Fibonacci number.")
+                
+    except ValueError:
+        print("Error: Please enter valid whole numbers.")
